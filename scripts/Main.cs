@@ -1,31 +1,29 @@
+using System.Collections.Generic;
 using Godot;
 
 public partial class Main : Node2D
 {
-	private Node2D blackPixel;
-	private Node2D whitePixel;
-
-	private Vector2 blackPixelStart;
-	private Vector2 whitePixelStart;
-
+	private Node2D sprites;
+	private List<Node2D> spriteNodes = new List<Node2D>();
+	private int spritesCount;
 	private double elapsed;
-	private readonly FastNoiseLite noise = new();
 
-	[Export] public float strength = 56.0f;
-	[Export] public float timescale = 4.0f;
-	[Export(PropertyHint.Range, "0,1,0.01")] public float saturation = 1.0f;
-	[Export(PropertyHint.Range, "0,1,0.01")] public float brightness = 1.0f;
+	[Export] public Vector2 Center = new Vector2(64, 64);
+	[Export] public float Amplitude = 60.0f;
+	[Export] public float XCycles = 0.9f;
+	[Export] public float YCycles = 0.3f;
+	[Export] public float Speed = 1.0f;
+	[Export] public float PhaseOffset = 0.2f;
 
 	public override void _Ready()
 	{
-		blackPixel = GetNode<Node2D>("BlackPixel");
-		whitePixel = GetNode<Node2D>("WhitePixel");
+		sprites = GetNode<Node2D>("Sprites");
+		spritesCount = sprites.GetChildCount();
 
-		blackPixelStart = blackPixel.Position;
-		whitePixelStart = whitePixel.Position;
-
-		noise.Seed = (int)GD.Randi();
-		noise.Frequency = 0.1f;
+		for (int i = 0; i < spritesCount; i++)
+		{
+			spriteNodes.Add(sprites.GetChild<Node2D>(i));
+		}
 	}
 
 	public override void _Process(double delta)
@@ -34,23 +32,14 @@ public partial class Main : Node2D
 			GetTree().Quit();
 
 		elapsed += delta;
-		float t = (float)elapsed;
+		float phase = (float)elapsed * Speed;
 
-		Oscillate(blackPixel, blackPixelStart, Mathf.Sin(t));
-		Oscillate(whitePixel, whitePixelStart, Mathf.Cos(t));
-
-		float hue = NormalisedNoise(0.0f, t * timescale);
-		whitePixel.Modulate = Color.FromHsv(hue, saturation, brightness);
-	}
-
-	private void Oscillate(Node2D node, Vector2 origin, float wave)
-	{
-		node.Position = new Vector2(origin.X + wave * strength, node.Position.Y);
-	}
-
-	private float NormalisedNoise(float offset, float elapsed)
-	{
-		float v = noise.GetNoise1D(offset + elapsed);
-		return (v + 1.0f) / 2.0f;
+		for (int i = 0; i < spriteNodes.Count; ++i)
+		{
+			float t = phase + i * PhaseOffset;
+			float x = Center.X + Amplitude * Mathf.Sin(t * XCycles);
+			float y = Center.Y + Amplitude * Mathf.Sin(t * YCycles);
+			spriteNodes[i].Position = new Vector2(x, y);
+		}
 	}
 }

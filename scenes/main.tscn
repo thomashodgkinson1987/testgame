@@ -1,31 +1,194 @@
 [gd_scene format=3 uid="uid://c4hb5injvtkkq"]
 
 [ext_resource type="Script" uid="uid://dpsrnx3o85d63" path="res://scripts/Main.cs" id="1_sugp2"]
-[ext_resource type="Texture2D" uid="uid://dcwj3qhptrdj6" path="res://textures/black-pixel.png" id="2_sugp2"]
-[ext_resource type="Texture2D" uid="uid://c1n8v6jfdnqo5" path="res://textures/white-pixel.png" id="3_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://bennls2dxbeta" path="res://atlases/pico-8-dark-blue.tres" id="2_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://bmf5ypt8vivdl" path="res://atlases/pico-8-black.tres" id="2_sugp2"]
+[ext_resource type="Texture2D" uid="uid://bcbbk2ny32pmd" path="res://atlases/pico-8-white.tres" id="3_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://c0sox1piwh0eq" path="res://atlases/pico-8-dark-purple.tres" id="4_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://chpmncqv1likg" path="res://atlases/pico-8-dark-green.tres" id="5_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://b0wmsvisrbgtm" path="res://atlases/pico-8-brown.tres" id="6_tefeu"]
+[ext_resource type="Texture2D" uid="uid://ul01pavox5mo" path="res://atlases/pico-8-dark-grey.tres" id="7_choun"]
+[ext_resource type="Texture2D" uid="uid://bjhormiua4gex" path="res://atlases/pico-8-light-grey.tres" id="8_ya4ey"]
+[ext_resource type="Texture2D" uid="uid://dswahnkbda8u2" path="res://atlases/pico-8-red.tres" id="10_eb6dy"]
+[ext_resource type="Texture2D" uid="uid://c8s4qdea0winl" path="res://atlases/pico-8-orange.tres" id="11_trceg"]
+[ext_resource type="Texture2D" uid="uid://kowxtebkg75r" path="res://atlases/pico-8-yellow.tres" id="12_a8y0u"]
+[ext_resource type="Texture2D" uid="uid://dp2a6b3nci1k5" path="res://atlases/pico-8-green.tres" id="13_jkv2x"]
+[ext_resource type="Texture2D" uid="uid://dgy4mcsm4thcd" path="res://atlases/pico-8-blue.tres" id="14_muem4"]
+[ext_resource type="Texture2D" uid="uid://dpg1m6mvayex5" path="res://atlases/pico-8-lavender.tres" id="15_dp3eg"]
+[ext_resource type="Texture2D" uid="uid://ckjd4lwbkewe0" path="res://atlases/pico-8-pink.tres" id="16_0ld40"]
+[ext_resource type="Texture2D" uid="uid://bvvadri6rfhh1" path="res://atlases/pico-8-light-peach.tres" id="17_gqmmt"]
 
 [node name="Main" type="Node2D" unique_id=1560745061]
 script = ExtResource("1_sugp2")
-strength = 56.0
-timescale = 4.0
+XCycles = 0.9
+YCycles = 0.3
+PhaseOffset = 0.2
 metadata/_edit_lock_ = true
 
-[node name="BlackPixel" type="Node2D" parent="." unique_id=53387028]
-position = Vector2(64, 48)
+[node name="Background" type="Sprite2D" parent="." unique_id=1605109334]
+scale = Vector2(128, 128)
+texture = ExtResource("2_sugp2")
+metadata/_edit_lock_ = true
 
-[node name="BlackPixel" type="Sprite2D" parent="BlackPixel" unique_id=1328231727]
-position = Vector2(-8, -8)
-scale = Vector2(16, 16)
+[node name="Sprites" type="Node2D" parent="." unique_id=292725426]
+metadata/_edit_lock_ = true
+
+[node name="Black" type="Node2D" parent="Sprites" unique_id=53387028]
+position = Vector2(64, 4)
+
+[node name="Sprite" type="Sprite2D" parent="Sprites/Black" unique_id=1328231727]
+position = Vector2(-4, -4)
+scale = Vector2(8, 8)
 texture = ExtResource("2_sugp2")
 centered = false
 metadata/_edit_lock_ = true
 
-[node name="WhitePixel" type="Node2D" parent="." unique_id=1127218370]
-position = Vector2(64, 80)
+[node name="DarkBlue" type="Node2D" parent="Sprites" unique_id=433903548]
+position = Vector2(64, 12)
 
-[node name="WhitePixel" type="Sprite2D" parent="WhitePixel" unique_id=215710461]
-position = Vector2(-8, -8)
-scale = Vector2(16, 16)
+[node name="Sprite" type="Sprite2D" parent="Sprites/DarkBlue" unique_id=839285648]
+position = Vector2(-4, -4)
+scale = Vector2(8, 8)
+texture = ExtResource("2_jyhfs")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="DarkPurple" type="Node2D" parent="Sprites" unique_id=2036249831]
+position = Vector2(64, 20)
+
+[node name="Sprite" type="Sprite2D" parent="Sprites/DarkPurple" unique_id=375163889]
+position = Vector2(-4, -4)
+scale = Vector2(8, 8)
+texture = ExtResource("4_jyhfs")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="DarkGreen" type="Node2D" parent="Sprites" unique_id=1147190828]
+position = Vector2(64, 28)
+
+[node name="Sprite" type="Sprite2D" parent="Sprites/DarkGreen" unique_id=1995334452]
+position = Vector2(-4, -4)
+scale = Vector2(8, 8)
+texture = ExtResource("5_tbgi4")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Brown" type="Node2D" parent="Sprites" unique_id=1126229283]
+position = Vector2(64, 36)
+
+[node name="Sprite" type="Sprite2D" parent="Sprites/Brown" unique_id=777452715]
+position = Vector2(-4, -4)
+scale = Vector2(8, 8)
+texture = ExtResource("6_tefeu")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="DarkGrey" type="Node2D" parent="Sprites" unique_id=678384582]
+position = Vector2(64, 44)
+
+[node name="Sprite" type="Sprite2D" parent="Sprites/DarkGrey" unique_id=707466079]
+position = Vector2(-4, -4)
+scale = Vector2(8, 8)
+texture = ExtResource("7_choun")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="LightGrey" type="Node2D" parent="Sprites" unique_id=994587194]
+position = Vector2(64, 52)
+
+[node name="Sprite" type="Sprite2D" parent="Sprites/LightGrey" unique_id=431569628]
+position = Vector2(-4, -4)
+scale = Vector2(8, 8)
+texture = ExtResource("8_ya4ey")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="White" type="Node2D" parent="Sprites" unique_id=859704405]
+position = Vector2(64, 60)
+
+[node name="Sprite" type="Sprite2D" parent="Sprites/White" unique_id=1619531321]
+position = Vector2(-4, -4)
+scale = Vector2(8, 8)
 texture = ExtResource("3_jyhfs")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Red" type="Node2D" parent="Sprites" unique_id=2072135273]
+position = Vector2(64, 68)
+
+[node name="Sprite" type="Sprite2D" parent="Sprites/Red" unique_id=657535879]
+position = Vector2(-4, -4)
+scale = Vector2(8, 8)
+texture = ExtResource("10_eb6dy")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Orange" type="Node2D" parent="Sprites" unique_id=238153139]
+position = Vector2(64, 76)
+
+[node name="Sprite" type="Sprite2D" parent="Sprites/Orange" unique_id=1138252209]
+position = Vector2(-4, -4)
+scale = Vector2(8, 8)
+texture = ExtResource("11_trceg")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Yellow" type="Node2D" parent="Sprites" unique_id=868755653]
+position = Vector2(64, 84)
+
+[node name="Sprite" type="Sprite2D" parent="Sprites/Yellow" unique_id=1519804777]
+position = Vector2(-4, -4)
+scale = Vector2(8, 8)
+texture = ExtResource("12_a8y0u")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Green" type="Node2D" parent="Sprites" unique_id=522327154]
+position = Vector2(64, 92)
+
+[node name="Sprite" type="Sprite2D" parent="Sprites/Green" unique_id=1274717063]
+position = Vector2(-4, -4)
+scale = Vector2(8, 8)
+texture = ExtResource("13_jkv2x")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Blue" type="Node2D" parent="Sprites" unique_id=1723130436]
+position = Vector2(64, 100)
+
+[node name="Sprite" type="Sprite2D" parent="Sprites/Blue" unique_id=872720202]
+position = Vector2(-4, -4)
+scale = Vector2(8, 8)
+texture = ExtResource("14_muem4")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Lavender" type="Node2D" parent="Sprites" unique_id=1666512546]
+position = Vector2(64, 108)
+
+[node name="Sprite" type="Sprite2D" parent="Sprites/Lavender" unique_id=796078609]
+position = Vector2(-4, -4)
+scale = Vector2(8, 8)
+texture = ExtResource("15_dp3eg")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Pink" type="Node2D" parent="Sprites" unique_id=909921964]
+position = Vector2(64, 116)
+
+[node name="Sprite" type="Sprite2D" parent="Sprites/Pink" unique_id=1859357551]
+position = Vector2(-4, -4)
+scale = Vector2(8, 8)
+texture = ExtResource("16_0ld40")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="LightPeach" type="Node2D" parent="Sprites" unique_id=1538911845]
+position = Vector2(64, 124)
+
+[node name="Sprite" type="Sprite2D" parent="Sprites/LightPeach" unique_id=1037209438]
+position = Vector2(-4, -4)
+scale = Vector2(8, 8)
+texture = ExtResource("17_gqmmt")
 centered = false
 metadata/_edit_lock_ = true
