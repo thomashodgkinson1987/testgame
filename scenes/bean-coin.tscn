@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://xc373416a6v7"]
+
+[ext_resource type="SpriteFrames" uid="uid://dj377evip7m86" path="res://spriteframes/bean-coin.tres" id="1_bg1bc"]
+
+[node name="BeanCoin" type="Node2D" unique_id=1649081385]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1346376834]
+sprite_frames = ExtResource("1_bg1bc")
+autoplay = "default"
