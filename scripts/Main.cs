@@ -11,8 +11,8 @@ public partial class Main : Node2D
 	private double elapsed;
 	private readonly FastNoiseLite noise = new();
 
-	[Export] public float strength = 8.0f;
-	[Export] public float timescale = 10.0f;
+	[Export] public float strength = 56.0f;
+	[Export] public float timescale = 4.0f;
 	[Export(PropertyHint.Range, "0,1,0.01")] public float saturation = 1.0f;
 	[Export(PropertyHint.Range, "0,1,0.01")] public float brightness = 1.0f;
 
