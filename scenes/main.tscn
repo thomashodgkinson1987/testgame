@@ -1,13 +1,33 @@
 [gd_scene format=3 uid="uid://c4hb5injvtkkq"]
 
-[ext_resource type="Texture2D" uid="uid://bcg2jhk3fgq4d" path="res://icon.svg" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://dpsrnx3o85d63" path="res://scripts/Main.cs" id="1_sugp2"]
-[ext_resource type="Script" uid="uid://bk6v3pw3npy3b" path="res://scripts/Icon.cs" id="2_0wfyh"]
+[ext_resource type="Texture2D" uid="uid://dcwj3qhptrdj6" path="res://textures/black-pixel.png" id="2_sugp2"]
+[ext_resource type="Texture2D" uid="uid://c1n8v6jfdnqo5" path="res://textures/white-pixel.png" id="3_jyhfs"]
 
 [node name="Main" type="Node2D" unique_id=1560745061]
 script = ExtResource("1_sugp2")
+strength = 56.0
+timescale = 4.0
+saturation = 0.8
+brightness = 0.5
+metadata/_edit_lock_ = true
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=1587466686]
-position = Vector2(64, 64)
-texture = ExtResource("1_o5qli")
-script = ExtResource("2_0wfyh")
+[node name="BlackPixel" type="Node2D" parent="." unique_id=53387028]
+position = Vector2(64, 48)
+
+[node name="BlackPixel" type="Sprite2D" parent="BlackPixel" unique_id=1328231727]
+position = Vector2(-8, -8)
+scale = Vector2(16, 16)
+texture = ExtResource("2_sugp2")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="WhitePixel" type="Node2D" parent="." unique_id=1127218370]
+position = Vector2(64, 80)
+
+[node name="WhitePixel" type="Sprite2D" parent="WhitePixel" unique_id=215710461]
+position = Vector2(-8, -8)
+scale = Vector2(16, 16)
+texture = ExtResource("3_jyhfs")
+centered = false
+metadata/_edit_lock_ = true
