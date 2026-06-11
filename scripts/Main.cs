@@ -1,67 +1,56 @@
 using Godot;
-using System;
 
 public partial class Main : Node2D
 {
-	private Node2D black_pixel;
-	private Node2D white_pixel;
+	private Node2D blackPixel;
+	private Node2D whitePixel;
 
-	private Vector2 black_pixel_default_position;
-	private Vector2 white_pixel_default_position;
+	private Vector2 blackPixelStart;
+	private Vector2 whitePixelStart;
 
-	private double elapsed = 0.0;
-	private float hue = 0.0f;
+	private double elapsed;
+	private readonly FastNoiseLite noise = new();
 
-	private readonly Random rng = new();
-	private FastNoiseLite _noise = new();
-
-	[Export]
-	public float strength = 8.0f;
-
-	[Export]
-	public float timescale = 10.0f;
-
-	[Export(PropertyHint.Range, "0,1,0.01")]
-	public float saturation = 1.0f;
-
-	[Export(PropertyHint.Range, "0,1,0.01")]
-	public float brightness = 1.0f;
+	[Export] public float strength = 8.0f;
+	[Export] public float timescale = 10.0f;
+	[Export(PropertyHint.Range, "0,1,0.01")] public float saturation = 1.0f;
+	[Export(PropertyHint.Range, "0,1,0.01")] public float brightness = 1.0f;
 
 	public override void _Ready()
 	{
-		black_pixel = GetNode<Node2D>("BlackPixel");
-		white_pixel = GetNode<Node2D>("WhitePixel");
+		blackPixel = GetNode<Node2D>("BlackPixel");
+		whitePixel = GetNode<Node2D>("WhitePixel");
 
-		black_pixel_default_position = black_pixel.Position;
-		white_pixel_default_position = white_pixel.Position;
+		blackPixelStart = blackPixel.Position;
+		whitePixelStart = whitePixel.Position;
 
-		_noise.Seed = (int)GD.Randi();
-		_noise.Frequency = 0.1f;
-		_noise.FractalOctaves = 1;
+		noise.Seed = (int)GD.Randi();
+		noise.Frequency = 0.1f;
 	}
 
 	public override void _Process(double delta)
 	{
 		if (Input.IsKeyPressed(Key.Escape))
-		{
 			GetTree().Quit();
-		}
 
 		elapsed += delta;
+		float t = (float)elapsed;
 
-		black_pixel.Position = new Vector2(black_pixel_default_position.X + (float)Math.Sin(elapsed) * strength, black_pixel.Position.Y);
-		white_pixel.Position = new Vector2(white_pixel_default_position.X + (float)Math.Cos(elapsed) * strength, white_pixel.Position.Y);
+		Oscillate(blackPixel, blackPixelStart, Mathf.Sin(t));
+		Oscillate(whitePixel, whitePixelStart, Mathf.Cos(t));
 
-		hue = NormalisedPerlin(0.0f, (float)elapsed * timescale);
-		white_pixel.Modulate = Color.FromHsv(hue, saturation, brightness);
+		float hue = NormalisedNoise(0.0f, t * timescale);
+		whitePixel.Modulate = Color.FromHsv(hue, saturation, brightness);
 	}
 
-	private float NormalisedPerlin(float offset, float elapsed)
+	private void Oscillate(Node2D node, Vector2 origin, float wave)
 	{
-		float v = _noise.GetNoise1D(offset + elapsed);
-		v += 1.0f;
-		v /= 2.0f;
+		node.Position = new Vector2(origin.X + wave * strength, node.Position.Y);
+	}
 
-		return v;
+	private float NormalisedNoise(float offset, float elapsed)
+	{
+		float v = noise.GetNoise1D(offset + elapsed);
+		return (v + 1.0f) / 2.0f;
 	}
 }
