@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://kowxtebkg75r"]
+
+[ext_resource type="Texture2D" uid="uid://feby3xmnkv2g" path="res://textures/pico-8-1x.png" id="1_h7may"]
+
+[resource]
+atlas = ExtResource("1_h7may")
+region = Rect2(10, 0, 1, 1)
