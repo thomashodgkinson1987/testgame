@@ -30,6 +30,12 @@ window/stretch/scale_mode="integer"
 
 project/assembly_name="TestGame"
 
+[layer_names]
+
+2d_physics/layer_1="BeanBoy"
+2d_physics/layer_2="BeanCoins"
+2d_physics/layer_3="Ground"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
