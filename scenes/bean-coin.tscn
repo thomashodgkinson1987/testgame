@@ -6,6 +6,7 @@
 radius = 3.0
 
 [node name="BeanCoin" type="Node2D" unique_id=1649081385]
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1346376834]
 sprite_frames = ExtResource("1_bg1bc")
