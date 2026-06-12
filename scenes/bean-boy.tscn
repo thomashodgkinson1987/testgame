@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://btohjxcedlut6"]
+
+[ext_resource type="SpriteFrames" uid="uid://dubsmalhxxcc1" path="res://spriteframes/bean-boy.tres" id="1_bn85a"]
+
+[node name="BeanBoy" type="CharacterBody2D" unique_id=599085907]
+collision_mask = 6
+platform_floor_layers = 4278190084
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1271579326]
+sprite_frames = ExtResource("1_bn85a")
+autoplay = "default"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=386574608]
+visible = false
+polygon = PackedVector2Array(-3, -3, 3, -3, 3, 4, -3, 4)
