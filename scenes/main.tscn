@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://ckjd4lwbkewe0" path="res://atlases/pico-8-palette/pink.tres" id="16_0ld40"]
 [ext_resource type="Texture2D" uid="uid://bvvadri6rfhh1" path="res://atlases/pico-8-palette/light-peach.tres" id="17_gqmmt"]
 [ext_resource type="TileSet" uid="uid://b7vdk87o5qwj7" path="res://tilesets/bean-boy.tres" id="18_dp3eg"]
+[ext_resource type="PackedScene" uid="uid://btohjxcedlut6" path="res://scenes/bean-boy.tscn" id="19_0ld40"]
 
 [node name="Main" type="Node2D" unique_id=1560745061]
 script = ExtResource("1_sugp2")
@@ -223,3 +224,6 @@ metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1986533346]
 position = Vector2(64, 64)
+
+[node name="BeanBoy" parent="." unique_id=599085907 instance=ExtResource("19_0ld40")]
+position = Vector2(32, 92)
