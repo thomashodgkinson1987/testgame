@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://btohjxcedlut6"]
 
 [ext_resource type="SpriteFrames" uid="uid://dubsmalhxxcc1" path="res://spriteframes/bean-boy.tres" id="1_bn85a"]
+[ext_resource type="Script" uid="uid://434wgaevr5py" path="res://scripts/BeanBoy.cs" id="1_xmxqy"]
 
 [node name="BeanBoy" type="CharacterBody2D" unique_id=599085907]
 collision_mask = 6
 platform_floor_layers = 4278190084
+script = ExtResource("1_xmxqy")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1271579326]
