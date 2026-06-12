@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://dubsmalhxxcc1"]
+
+[ext_resource type="Texture2D" uid="uid://doeam1g8mw72q" path="res://atlases/bean-boy/idle.tres" id="1_wv105"]
+[ext_resource type="Texture2D" uid="uid://dbw1dbqfu7m1p" path="res://atlases/bean-boy/fall.tres" id="2_cgwt7"]
+[ext_resource type="Texture2D" uid="uid://bp3c8ud8dqg73" path="res://atlases/bean-boy/jump.tres" id="3_k5djg"]
+[ext_resource type="Texture2D" uid="uid://bgeoykkefm5ey" path="res://atlases/bean-boy/walk-1.tres" id="4_sjgr6"]
+[ext_resource type="Texture2D" uid="uid://08d1kaffe664" path="res://atlases/bean-boy/walk-2.tres" id="5_eahg6"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_wv105")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cgwt7")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_wv105")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_k5djg")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_sjgr6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_eahg6")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
